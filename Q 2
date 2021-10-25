@@ -1,0 +1,29 @@
+package com.dinesh;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int num=in.nextInt();
+        din(num);
+    }
+
+    static void din(int num) {
+        int sum = num +9, d = 0, s = 0,a=0,b=0;
+        while (num > 0) {
+            d = num % 10;
+            s += d;
+            num /= 10;
+        }
+        while(sum>0){
+            a=sum%10;
+            b+=a;
+            sum/=10;
+        }
+        if(s==b){
+            System.out.println(s+" sum is equal");
+        }
+    }
+}
