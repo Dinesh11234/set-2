@@ -1,3 +1,4 @@
+
 package com.dinesh;
 
 import java.util.Scanner;
@@ -7,23 +8,31 @@ public class Main {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         int num=in.nextInt();
-        din(num);
+        int sum=1,temp=num,d=0;
+        String str="";
+        while(temp>0){
+            temp/=10;
+            sum++;
+        }
+        while(num>0){
+            d+=num%10;
+            num/=10;
+        }
+        din(sum,d,str);
     }
-
-    static void din(int num) {
-        int sum = num +9, d = 0, s = 0,a=0,b=0;
-        while (num > 0) {
-            d = num % 10;
-            s += d;
-            num /= 10;
+    static void din(int sum,int d,String str) {
+        if(sum>0&&d>=0){
+            char c='0';
+            if(str.equals("")){
+                c='1';
+            }
+            while(c<='9'){
+                din(sum-1,d-(c-'0'),str+c);
+                c++;
+            }
         }
-        while(sum>0){
-            a=sum%10;
-            b+=a;
-            sum/=10;
-        }
-        if(s==b){
-            System.out.println(s+" sum is equal");
+        else if(sum==0&&d==0){
+            System.out.print(str+" ");
         }
     }
 }
